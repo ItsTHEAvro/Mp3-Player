@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: #C33764;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #242e8dec, #C33764);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #242e8dec, #C33764);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    margin-top: 5rem;
+    color: #f9fbcf;
+    letter-spacing: 1px;
+}
+
+.song-title {
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.song-author {
+    align-self: flex-end;
+    text-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    width: 18rem;
+    margin: 0rem 2rem;
+    padding: 1rem;
+    background-image: -webkit-linear-gradient(160deg, #0093e9ee 0%, #80d0c78a 100%);
+    background-image: -moz-linear-gradient(160deg, #0094e991 0%, #80d0c78a 100%);
+    background-image: -o-linear-gradient(160deg, #0094e991 0%, #80d0c78a 100%);
+    background-image: linear-gradient(160deg, #0094e991 0%, #80d0c78a 100%);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressbar-container {
+    height: 1rem;
+    width: 100%;
+    background-color: #ffc8dd;
+}
+
+.cover-container {
+    position: relative;
+}
+
+.cover-container::after {
+    content: '';
+    background-color: pink;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, 50%)
+}
+
+.cover-img {
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 0px 10px 0 rgba(3, 4, 24, 0.788);
+    animation: rotate 4s linear infinite;
+}
+
+.navigation-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5rem 0 0 0;
+}
+
+.btn {
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.btn-middle {
+    font-size: 1.5rem;
+}
+
+.btn:hover {
+    color: #111;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
