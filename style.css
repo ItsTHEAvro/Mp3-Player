@@ -57,12 +57,6 @@ header {
     align-items: center;
 }
 
-.progressbar-container {
-    height: 1rem;
-    width: 100%;
-    background-color: #ffc8dd;
-}
-
 .cover-container {
     position: relative;
 }
@@ -85,6 +79,28 @@ header {
     margin-bottom: 0.5rem;
     box-shadow: 0px 0px 10px 0 rgba(3, 4, 24, 0.788);
     animation: rotate 4s linear infinite;
+    animation-play-state: paused;
+}
+
+.container.play .cover-img {
+    animation-play-state: running;
+}
+
+.progressbar-container {
+    border-radius: 5px;
+    height: 4px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+}
+
+.progressbar {
+    height: 100%;
+    width: 0%;
+    background-color: #4169e1;
+    border-radius: 5px;
+    transition: width 0.1s linear;
 }
 
 .navigation-btn-container {
@@ -105,12 +121,20 @@ header {
     color: #333;
 }
 
-.btn-middle {
+.btn:focus {
+    outline: none;
+}
+
+.btn-play {
     font-size: 1.5rem;
 }
 
 .btn:hover {
     color: #111;
+}
+
+btn:active {
+    color: #333;
 }
 
 @keyframes rotate {
