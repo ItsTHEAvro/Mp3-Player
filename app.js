@@ -10,16 +10,18 @@ const author = document.querySelector('.song-author');
 const cover = document.querySelector('.cover-img');
 const songDuration = document.querySelector('.totalTime');
 const currentTime = document.querySelector('.currentTime');
+const lyrics = document.querySelector('.lyrics');
 
 // Song titles and authors
-const songs = ['Stuck', 'Be As You Are'];
-const authors = ['Ollie', 'Mike Posner']
+const songs = ['Stuck', 'Be As You Are', 'Ocean'];
+const authors = ['Ollie', 'Mike Posner', 'Anuv Jain']
 
 // Keep track of songs
 let songIndex = 0;
 
 // Initially load song into DOM
 loadSong(songIndex);
+showLyrics(songIndex);
 
 // Update song details
 function loadSong(index) {
@@ -53,6 +55,7 @@ function prevSong() {
     }
 
     loadSong(songIndex);
+    showLyrics(songIndex);
     playSong();
 }
 
@@ -64,6 +67,7 @@ function nextSong() {
     }
 
     loadSong(songIndex);
+    showLyrics(songIndex);
     playSong();
 }
 
@@ -78,6 +82,20 @@ function setProgress(event) {
     const clickX = event.offsetX;
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
+}
+
+function showLyrics(index) {
+    let song_title = songs[index];
+    let song_author = authors[index];
+    let lyricsFile = `lyrics/${song_author} - ${song_title}.json`
+    fetch(lyricsFile).then(response => {
+            return response.json();
+        }).catch(() => {
+            lyrics.innerText = 'No lyrics found!';
+        })
+        .then(data => {
+            lyrics.innerText = data.lyrics;
+        })
 }
 
 // Event listeners
